@@ -1,0 +1,10 @@
+#!/usr/bin/env rc
+werc=$HOME/mount/werc/alephnull.se/dump/_tmp/
+url=$werc^$*
+
+if(test -d $werc) {
+	cp $* werc
+	echo -n $url
+	sleep 600
+	rm $url
+}
