@@ -1,15 +1,18 @@
 #!/usr/bin/env rc
 
 werc=$HOME/mount/werc/sites/alephnull.se/links/
-if(test -d werc) {
+if(test -d $werc) {
 	switch($#*){
 	case 2
-		echo '['$1']('$2')' >> $werc/unsorted.md
+		echo '['$2']('$1')' >> $werc/unsorted.md
 	case 3
-		echo '['$1']('$2')' >> werc/$3.md
+		echo '['$2']('$1')' >> $werc/$3.md
 	case 4
-		echo '['$1']('$2')' $4 >> werc/$3.md
+		echo '['$2']('$1')' $4 >> $werc/$3.md
 	case *
 		echo 'Usage: addlink link url <category> <explanation text>'
 	}
+}
+if not {
+	echo 'Cant find werc install'
 }
